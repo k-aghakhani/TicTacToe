@@ -29,20 +29,26 @@ Connect an Android device or start an emulator.
 
 Click the "Run" button in Android Studio to build and launch the app.
 
-##🎥 Demo
+---
+
+## 🎥 Demo
 Here’s a quick preview of the game:
 
 Tic-Tac-Toe Demo
 (Replace this with an actual GIF or screenshot of your app in action!)
 
-##📂 Project Structure
+---
+
+## 📂 Project Structure
 MainActivity.java: Contains the game logic and UI interactions.
 
 activity_main.xml: Defines the layout of the game board and buttons.
 
 res/: Includes drawable resources, strings, and other assets.
 
-##🤝 Contributing
+---
+
+## 🤝 Contributing
 Contributions are welcome! If you have any ideas, improvements, or bug fixes, feel free to:
 
 Fork the repository.
@@ -55,5 +61,7 @@ Push to the branch (git@github.com:k-aghakhani/TicTacToe.git).
 
 Open a pull request.
 
-##🙏 Credits
+---
+
+## 🙏 Credits
 Developed with ❤️ by Kiarash.
