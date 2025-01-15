@@ -16,7 +16,7 @@ Welcome to the **Tic-Tac-Toe Android Game** repository! This is a simple yet fun
 ## 🛠️ How to Run the Project  
 1. **Clone the Repository**:  
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone git@github.com:k-aghakhani/TicTacToe.git
 2.Open in Android Studio:
 
 Open the project in Android Studio.
@@ -51,7 +51,7 @@ Create a new branch (git checkout -b feature/YourFeatureName).
 
 Commit your changes (git commit -m 'Add some feature').
 
-Push to the branch ().
+Push to the branch (git@github.com:k-aghakhani/TicTacToe.git).
 
 Open a pull request.
 
