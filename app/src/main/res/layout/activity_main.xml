@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_marginTop="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
     <TextView
@@ -14,9 +14,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player X's Turn"
-        android:textSize="24sp"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="30dp"
+        android:textStyle="bold"/>
 
     <GridLayout
         android:id="@+id/gridLayout"
@@ -25,69 +28,97 @@
         android:layout_below="@id/tv_status"
         android:layout_centerHorizontal="true"
         android:columnCount="3"
-        android:rowCount="3">
+        android:rowCount="3"
+        android:background="@drawable/grid_background">
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_0"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_1"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_2"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_3"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_4"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_5"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_6"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_7"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
 
         <Button
+            android:layout_margin="8dp"
             android:id="@+id/btn_8"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:textSize="24sp"
+            android:textSize="32sp"
+            android:background="@drawable/cell_background"
+            android:textColor="@color/white"
             android:onClick="cellClicked"/>
     </GridLayout>
 
@@ -96,9 +127,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"
         android:layout_below="@id/gridLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:onClick="resetGame"/>
 
 </RelativeLayout>
