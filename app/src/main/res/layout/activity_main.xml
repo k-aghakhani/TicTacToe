@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:padding="16dp"
     android:background="@drawable/gradient_background"
     tools:context=".MainActivity">
 
@@ -20,7 +20,11 @@
         android:fontFamily="sans-serif-condensed"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:shadowColor="@color/shadow_color"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"/>
 
     <GridLayout
         android:id="@+id/gridLayout"
