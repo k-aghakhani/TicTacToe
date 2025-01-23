@@ -1,10 +1,10 @@
 package com.aghakhani.tictactoe;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean playerXTurn = true;
     private int roundCount = 0;
     private TextView tvStatus;
+    private Dialog resultDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         tvStatus = findViewById(R.id.tv_status);
 
         for (int i = 0; i < 3; i++) {
@@ -38,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
                 buttons[i][j] = findViewById(resID);
             }
         }
+
+        // Initialize the result dialog
+        resultDialog = new Dialog(this);
+        resultDialog.setContentView(R.layout.dialog_game_result);
+        resultDialog.setCancelable(false);
+
+        Button btnResetDialog = resultDialog.findViewById(R.id.btn_reset_dialog);
+        btnResetDialog.setOnClickListener(v -> {
+            resetGame(null);
+            resultDialog.dismiss();
+        });
     }
 
     public void cellClicked(View view) {
@@ -55,14 +66,10 @@ public class MainActivity extends AppCompatActivity {
         roundCount++;
 
         if (checkForWin()) {
-            if (playerXTurn) {
-                tvStatus.setText("Player X Wins!");
-            } else {
-                tvStatus.setText("Player O Wins!");
-            }
+            showResultDialog(playerXTurn ? "Player X Wins!" : "Player O Wins!");
             disableButtons();
         } else if (roundCount == 9) {
-            tvStatus.setText("Draw!");
+            showResultDialog("Draw!");
         } else {
             playerXTurn = !playerXTurn;
             if (playerXTurn) {
@@ -71,7 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 tvStatus.setText("Player O's Turn");
             }
         }
+    }
 
+    private void showResultDialog(String result) {
+        TextView tvResult = resultDialog.findViewById(R.id.tv_result);
+        tvResult.setText(result);
+        resultDialog.show();
     }
 
     private boolean checkForWin() {
