@@ -1,6 +1,7 @@
 package com.aghakhani.tictactoe;
 
 import android.app.Dialog;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private int roundCount = 0;
     private TextView tvStatus;
     private Dialog resultDialog;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.win_sound);
         tvStatus = findViewById(R.id.tv_status);
 
         for (int i = 0; i < 3; i++) {
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         roundCount++;
 
         if (checkForWin()) {
+            mediaPlayer.start();
             showResultDialog(playerXTurn ? "Player X Wins!" : "Player O Wins!");
             disableButtons();
         } else if (roundCount == 9) {
