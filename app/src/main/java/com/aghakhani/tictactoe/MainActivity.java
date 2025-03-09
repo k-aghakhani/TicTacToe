@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
@@ -19,6 +21,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvStatus;
     private Dialog resultDialog;
     private MediaPlayer mediaPlayer;
+
+    // Emoji constants for players
+    private static final String PLAYER_X_EMOJI = "☀️";
+    private static final String PLAYER_O_EMOJI = "🌙";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,26 +65,31 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        // Load and start scale animation
+        Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale);
+        button.startAnimation(scaleAnimation);
+
+        // Set emoji based on player's turn
         if (playerXTurn) {
-            button.setText("X");
+            button.setText(PLAYER_X_EMOJI);
         } else {
-            button.setText("O");
+            button.setText(PLAYER_O_EMOJI);
         }
 
         roundCount++;
 
         if (checkForWin()) {
             mediaPlayer.start();
-            showResultDialog(playerXTurn ? "Player X Wins!" : "Player O Wins!");
+            showResultDialog(playerXTurn ? "Player " + PLAYER_X_EMOJI + " Wins!" : "Player " + PLAYER_O_EMOJI + " Wins!");
             disableButtons();
         } else if (roundCount == 9) {
             showResultDialog("Draw!");
         } else {
             playerXTurn = !playerXTurn;
             if (playerXTurn) {
-                tvStatus.setText("Player X's Turn");
+                tvStatus.setText("Player " + PLAYER_X_EMOJI + "'s Turn");
             } else {
-                tvStatus.setText("Player O's Turn");
+                tvStatus.setText("Player " + PLAYER_O_EMOJI + "'s Turn");
             }
         }
     }
@@ -139,6 +150,15 @@ public class MainActivity extends AppCompatActivity {
 
         playerXTurn = true;
         roundCount = 0;
-        tvStatus.setText("Player X's Turn");
+        tvStatus.setText("Player " + PLAYER_X_EMOJI + "'s Turn");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
