@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     // Emoji constants for players
     private static final String PLAYER_X_EMOJI = "☀️";
     private static final String PLAYER_O_EMOJI = "🌙";
-    private static final long TIMER_DURATION = 10000; // 10 seconds in milliseconds
+    private static final long TIMER_DURATION = 15000; // 15 seconds in milliseconds
     private static final long TIMER_INTERVAL = 1000; // Update every second
 
     @Override
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         timer = new CountDownTimer(TIMER_DURATION, TIMER_INTERVAL) {
-            int timeLeft = 10; // Initial time in seconds
+            int timeLeft = 15; // Initial time in seconds
 
             @Override
             public void onTick(long millisUntilFinished) {
